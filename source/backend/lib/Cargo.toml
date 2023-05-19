@@ -1,0 +1,27 @@
+[package]
+name = "infrastructure"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[lib]
+name = "infrastructure"
+path = "./mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+crate-type = ["lib"]
+required-features = []
+
+[dependencies]
+bb8 = { package = "bb8", version = "^0.7", default-features = true, features = [], optional = false }
+bb8_redis = { package = "bb8-redis", version = "^0.10", default-features = true, features = [], optional = false }
+hex = { package = "hex", version = "^0.4.3", default-features = true, features = [], optional = false }
+http = { package = "http", version = "^0.2", default-features = true, features = [], optional = false }
+hyper = { package = "hyper", version = "^0.14", default-features = true, features = ["full"], optional = false }
+redis = { package = "redis", version = "^0.21", default-features = true, features = ["tokio-comp", "tokio-native-tls-comp"], optional = false }
+web3 = { package = "web3", version = "0.18.0", default-features = true, features = [], optional = false }

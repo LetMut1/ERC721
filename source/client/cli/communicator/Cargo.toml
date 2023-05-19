@@ -1,0 +1,17 @@
+[package]
+name = "communicator"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[[bin]]
+name = "communicator"
+path = "./mod.rs"
+edition = "2021"
+required-features = []
+
+[dependencies]
+clap = { package = "clap", version = "^2.33.3", default-features = true, features = [], optional = false }
+serde_json = { package = "serde_json", version = "^1.0.95", default-features = true, features = [], optional = false }
+tokio = { package = "tokio", version = "^1.16", default-features = true, features = ["full"], optional = false }
+web3 = {package = "web3", version = "0.18.0", default-features = true, features = [], optional = false}

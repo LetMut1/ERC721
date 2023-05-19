@@ -1,0 +1,6 @@
+FROM node:latest
+
+RUN \
+mkdir -p /_task && \
+npm install -g \
+    truffle

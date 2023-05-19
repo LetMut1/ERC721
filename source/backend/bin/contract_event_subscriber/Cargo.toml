@@ -1,0 +1,17 @@
+[package]
+name = "contract-event-subscriber"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[[bin]]
+name = "contract-event-subscriber"
+path = "./mod.rs"
+edition = "2021"
+required-features = []
+
+[dependencies]
+clap = { package = "clap", version = "^2.33.3", default-features = true, features = [], optional = false }
+infrastructure = { path = "./../../lib", package = "infrastructure", version = "0.1.0", default-features = true, features = [], optional = false }
+serde_json = { version = "^1.0", default-features = true, features = [], optional = false }
+tokio = { package = "tokio", version = "^1.16", default-features = true, features = ["full"], optional = false }

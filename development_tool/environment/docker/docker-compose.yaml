@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+    rust:
+        container_name: rust
+        build:
+            context: ./service/rust/
+            dockerfile: dockerfile
+        environment:
+            USER: ${USER}
+        volumes:
+            - ./../../../:/_task
+        working_dir: /_task
+        restart: always
+        ports:
+            - 80:80
+        tty: true
+        init: true
+    ganache:
+        container_name: ganache
+        build:
+            context: ./service/ganache/
+            dockerfile: dockerfile
+        environment:
+            USER: ${USER}
+        volumes:
+            - ./../../../:/_task
+        working_dir: /_task
+        restart: always
+        ports:
+        - 8545:8545
+        tty: true
+        init: true
+    truffle:
+        container_name: truffle
+        build:
+            context: ./service/truffle/
+            dockerfile: dockerfile
+        environment:
+            USER: ${USER}
+        volumes:
+            - ./../../../:/_task
+        working_dir: /_task
+        restart: always
+        ports:
+        - 3000:3000
+        tty: true
+        init: true
+    redis:
+        container_name: redis
+        build:
+            context: ./service/redis
+            dockerfile: dockerfile
+        restart: always
+    redis_client:
+        container_name: redis_client
+        build:
+            context: ./service/redis_client
+            dockerfile: dockerfile
+        ports:
+        - 5001:5001
+        restart: always
